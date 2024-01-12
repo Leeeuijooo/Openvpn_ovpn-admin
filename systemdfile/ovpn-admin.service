@@ -1,0 +1,14 @@
+[Unit]
+Description=ovpn-admin
+Documentation=https://github.com/flant/ovpn-admin/tree/master
+Documentation=https://github.com/pashcovich/openvpn-user
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/openvpn/server
+ExecStartPre=/bin/bash -c '/bin/bash ~/Openvpn_ovpn-admin/setup/setup-script.sh'
+ExecStart=/usr/sbin/ovpn-admin-linux-amd64 --easyrsa.bin-path="./easyrsa" --log.level="debug" --ovpn.server=<Pub-IP>:udp --templates.clientconfig-path="/etc/openvpn/server/client.conf.tpl" --auth.password --auth.db="/etc/openvpn/server/easyrsa/pki/users.db"
+RestartSec=5s
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
