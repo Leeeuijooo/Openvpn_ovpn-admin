@@ -2,6 +2,7 @@
 **This is for OpenVPN Server Management with UI** 
 * Using ovpn-admin
 * Using OpenVPN Community Server
+* Ubuntu 20.04
 ---
 ## Using
 1. install ovpn-admin binaryFile
