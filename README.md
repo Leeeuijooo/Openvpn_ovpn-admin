@@ -1,13 +1,16 @@
 ## Openvpn_ovpn-admin
-**This is for OpenVPN Server Management with UI** 
-* Using ovpn-admin
-* Using OpenVPN Community Server
-* Ubuntu 20.04
+**이 프로그램의 목적은 OpenVPN 커뮤니티 에디션(오픈소스)을 ovpn-admin 이라는 프로그램을 이용해 GUI로 관리하기 위함입니다.** 
 ---
-## Using
-1. install ovpn-admin binaryFile
-  *  https://github.com/flant/ovpn-admin/releases/download/2.0.2/ovpn-admin-linux-amd64.tar.gz
-  *  tar file!
-2. install openvpn-user binaryFile
-  *  https://github.com/pashcovich/openvpn-user/releases/download/v1.0.9/openvpn-user-linux-amd64.tar.gz
-  *  tar file!
+### 실행 환경
+* AWS 환경에서 구성하였습니다.
+* Ubuntu 20.04 이미지로 서버 생성하였습니다.
+* Prod 환경에서는 테스트하지 마세요.
+
+--
+### Information
+* OpenVPN Community Server 를 사용합니다.
+* ovpn-admin 를 사용합니다.
+
+---
+### Using
+
