@@ -201,11 +201,11 @@ if [[ ! -e /etc/openvpn/server/server.conf ]]; then
 		read -p "DNS server [1]: " dns
 	done
 	echo
-	echo "Enter a name for the first client:"
-	read -p "Name [client]: " unsanitized_client
+	#echo "Enter a name for the first client:"
+	#read -p "Name [client]: " unsanitized_client
 	# Allow a limited set of characters to avoid conflicts
-	client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
-	[[ -z "$client" ]] && client="client"
+	#client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
+	#[[ -z "$client" ]] && client="client"
 	echo
 	echo "OpenVPN installation is ready to begin."
 	# Install a firewall if firewalld or iptables are not already available
@@ -251,7 +251,7 @@ LimitNPROC=infinity" > /etc/systemd/system/openvpn-server@server.service.d/disab
 	./easyrsa --batch init-pki
 	./easyrsa --batch build-ca nopass
 	./easyrsa --batch --days=3650 build-server-full server nopass # openvpn 서버 관리자 password 설정
-	./easyrsa --batch --days=3650 build-client-full "$client" nopass
+	#./easyrsa --batch --days=3650 build-client-full "$client" nopass
 	./easyrsa --batch --days=3650 gen-crl
 	# Move the stuff we need
 	cp pki/ca.crt pki/private/ca.key pki/issued/server.crt pki/private/server.key pki/crl.pem /etc/openvpn/server
@@ -439,8 +439,8 @@ verb 3" > /etc/openvpn/server/client-common.txt
 	echo
 	echo "Finished!"
 	echo
-	echo "The client configuration is available in:" ~/"$client.ovpn"
-	echo "New clients can be added by running this script again."
+	#echo "The client configuration is available in:" ~/"$client.ovpn"
+	#echo "New clients can be added by running this script again."
 else
 	clear
 	echo "OpenVPN is already installed."
