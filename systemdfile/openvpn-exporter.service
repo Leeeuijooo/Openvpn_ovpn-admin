@@ -1,0 +1,13 @@
+[Unit]
+Description=ovpn-admin
+Documentation=https://github.com/kumina/openvpn_exporter
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/openvpn/server
+ExecStartPre=/bin/bash -c '/bin/bash ~/Openvpn_ovpn-admin/setup/openvpn-exporter.sh'
+ExecStart=/usr/sbin/openvpn_exporter -openvpn.status_paths /var/log/openvpn_logs/openvpn-status.log
+RestartSec=5s
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
