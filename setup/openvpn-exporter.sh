@@ -25,15 +25,14 @@ if [ -f "$archive_file" ] && [ -f "/usr/sbin/$binary_file" ]; then
 else
     # Download archive if it doesn't exist
     [ -f "$archive_file" ] || wget "$archive_url"
-
+    echo "Getting Files."
     # Extract archive if it doesn't exist
     [ -d "$extracted_dir" ] || tar -xzf "$archive_file"
-
+    echo "Extracting files complete."
     # Build binary
     (cd "$extracted_dir" && go build)
-
+    echo "Go build success."
     # Move binary to /usr/sbin/ if it doesn't exist
     [ -f "/usr/sbin/$binary_file" ] || mv "$extracted_dir/$binary_file" "/usr/sbin/"
-
     echo "Script completed."
 fi

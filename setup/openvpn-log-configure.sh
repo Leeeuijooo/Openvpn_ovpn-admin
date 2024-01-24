@@ -22,8 +22,6 @@ else
 fi
 
 # logrotate 설정
-#!/bin/bash
-
 logrotate_file="/etc/logrotate.d/openvpntest"
 
 # Check if logrotate file
