@@ -23,8 +23,8 @@ OpenVPN 커뮤니티 에디션(오픈소스)의 사용자를 ovpn-admin 이라�
 ### Using
 1. 현재의 레포지토리를 clone 합니다.
 2. openvpn-install.sh 파일을 실행하여 vpn 서버를 구축합니다.
-3. ovpn-admin 서비스 데몬을 생성합니다.
-  * ID/PW (2차 인증) 방식을 사용하고 싶으시면 ./systemdfile 의 ovpn-admin-id-pw.service 서비스 데몬을 생성하새요.
+3. ovpn-admin 서비스 데몬을 생성합니다. `/usr/lib/systemd/system/`
+  * (권장) ID/PW (2차 인증) 방식을 사용하고 싶으시면 ./systemdfile 의 ovpn-admin-id-pw.service 서비스 데몬을 생성하새요.
   * ID/PW (2차 인증) 방식을 사용하고 싶지 않으시면 ./systemdfile 의 ovpn-admin.service 서비스 데몬을 생성하세요.
     ```
     systemctl daemon-reload
